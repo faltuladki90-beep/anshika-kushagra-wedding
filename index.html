@@ -80,7 +80,8 @@ h2{font:500 clamp(2.8rem,7vw,5rem)/.94 "Cormorant Garamond",serif;color:var(--wi
 <div class="sub">A sacred beginning · 21 November 2026</div>
 <button class="btn" id="enter">Begin with Ganesha’s Blessings <span>✧</span></button><div id="audioHint" class="sub" style="margin-top:10px;opacity:.72;letter-spacing:.08em;text-transform:none">The invitation will open when the blessing music ends · Tap again to continue now</div>
 </div></div>
-<button class="music-control" id="musicControl" type="button" aria-label="Play wedding music">♫ Play wedding music</button>\n<nav class="topnav"><a href="#home">Home</a><a href="#invitation">Invitation</a><a href="#families">Families</a><a href="#gallery">Gallery</a><a href="#venue">Venue</a></nav>
+<button class="music-control" id="musicControl" type="button" aria-label="Play wedding music">♫ Play wedding music</button>
+<nav class="topnav"><a href="#home">Home</a><a href="#invitation">Invitation</a><a href="#families">Families</a><a href="#gallery">Gallery</a><a href="#venue">Venue</a></nav>
 <header class="cover" id="home"><div class="cover-inner"><div class="eyebrow">Together with their families</div><div class="ornament" style="font-size:2rem;margin:25px">✧ ❧ ✧</div><h1>Er. Kushagra<br><span class="amp">&</span><br>Anshika</h1><div class="tagline">Two Hearts, One Beautiful Beginning</div><div class="date">21 November 2026 · Gwalior, India</div><a class="btn" href="#invitation">Read the Invitation ↓</a></div></header>
 <main>
 <section class="section invite-section center" id="invitation"><div class="inner fade"><div class="kicker">A celebration of love and togetherness</div><h2>Two Hearts, One Beautiful Beginning</h2><div class="rule"></div>
@@ -138,7 +139,8 @@ function enter(){
   ganeshaAudio.currentTime=0;ganeshaAudio.addEventListener('ended',openInvitation,{once:true});
   ganeshaAudio.play().catch(()=>openInvitation());
 }
-enterButton.addEventListener('click',enter);\ndocument.getElementById('musicControl').addEventListener('click',()=>{if(romanticAudio.paused){romanticAudio.play().then(()=>{document.getElementById('musicControl').textContent='♫ Pause wedding music';}).catch(()=>{});}else{romanticAudio.pause();document.getElementById('musicControl').textContent='♫ Play wedding music';}});
+enterButton.addEventListener('click',enter);
+document.getElementById('musicControl').addEventListener('click',()=>{if(romanticAudio.paused){romanticAudio.play().then(()=>{document.getElementById('musicControl').textContent='♫ Pause wedding music';}).catch(()=>{});}else{romanticAudio.pause();document.getElementById('musicControl').textContent='♫ Play wedding music';}});
 intro.addEventListener('click',e=>{if(blessingStarted&&e.target===intro)openInvitation();});
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
