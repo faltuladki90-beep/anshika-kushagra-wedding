@@ -18,7 +18,7 @@ a{color:inherit}.ornament{color:var(--gold);letter-spacing:.35em}
 .intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;overflow:auto;background:radial-gradient(ellipse at 50% 35%,#783c25 0%,#461522 48%,#210710 100%);color:var(--champ);transition:opacity 1.25s,visibility 1.25s}
 .intro:before,.intro:after{content:"";position:absolute;inset:16px;border:1px solid #c9a45c99;pointer-events:none}.intro:after{inset:24px;border-color:#c9a45c44}
 .intro.hide{opacity:0;visibility:hidden;pointer-events:none}.intro-content{position:relative;z-index:1;padding:40px 22px;max-width:620px;animation:arrive 1.5s both}
-.ganesha{width:min(66vw,330px);height:auto;max-height:43vh;object-fit:contain;border-radius:48% 48% 8px 8px;filter:drop-shadow(0 0 28px #e9b85b66);animation:ganeshaGlow 4s ease-in-out infinite}
+.ganesha{width:min(76vw,390px);height:auto;max-height:57vh;object-fit:contain;border-radius:0;filter:drop-shadow(0 0 34px #e9b85b88);animation:ganeshaReveal 2.2s cubic-bezier(.2,.8,.2,1) both}
 .intro h1{font:500 clamp(2.8rem,8vw,5.8rem)/.9 "Cormorant Garamond",serif;color:#f7e8c9;margin:22px 0 12px}
 .intro .sub{letter-spacing:.22em;text-transform:uppercase;font-size:.68rem;color:#e8d6b3}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin:12px 5px 0;padding:14px 24px;border:1px solid var(--gold);background:linear-gradient(135deg,#7b293a,#48111f);color:var(--champ);text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;cursor:pointer;transition:transform .3s,box-shadow .3s}
@@ -63,7 +63,7 @@ h2{font:500 clamp(2.8rem,7vw,5rem)/.94 "Cormorant Garamond",serif;color:var(--wi
 .fade{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}.fade.visible{opacity:1;transform:none}
 .petal{position:fixed;top:-24px;z-index:15;pointer-events:none;color:#e6b9a8;text-shadow:0 0 8px #f7dfb7;animation:fall linear forwards}
 @keyframes arrive{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes ganeshaGlow{50%{filter:drop-shadow(0 0 42px #e9b85baa);transform:translateY(-5px)}}
+@keyframes ganeshaReveal{from{opacity:0;transform:translateY(26px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes fall{to{transform:translateY(110vh) rotate(520deg);opacity:0}}
 @media(max-width:700px){.families{grid-template-columns:1fr;gap:14px;max-width:440px}.family-and{line-height:.7}.gallery{grid-template-columns:1fr 1fr;gap:10px}.gallery img{height:240px}.topnav{gap:13px;font-size:.57rem}.section{padding-left:16px;padding-right:16px}.countdown{gap:12px}.invite-card{padding:38px 18px}}
 @media(max-width:420px){.gallery img{height:190px}.time strong{font-size:2.45rem}.time span{font-size:.53rem}}
@@ -71,7 +71,7 @@ h2{font:500 clamp(2.8rem,7vw,5rem)/.94 "Cormorant Garamond",serif;color:var(--wi
 </style></head>
 <body>
 <div class="intro" id="intro"><div class="intro-content">
-<img class="ganesha" src="assets/ganesha.webp" alt="Golden idol of Lord Ganesha">
+<img class="ganesha" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/07ba7be6-2822-4373-b3bd-477d8c789758.png" alt="Golden idol of Lord Ganesha">
 <div class="ornament" style="margin:16px 0">✧ ❧ ✧</div>
 <div class="sub">॥ श्री गणेशाय नमः ॥</div>
 <h1>Er. Kushagra <span class="amp">&</span> Anshika</h1>
@@ -105,15 +105,15 @@ h2{font:500 clamp(2.8rem,7vw,5rem)/.94 "Cormorant Garamond",serif;color:var(--wi
 <section class="section center" id="venue"><div class="inner fade"><div class="kicker">Save the date</div><h2>Celebrate With Us</h2><div class="event-card"><div class="ornament" style="font-size:2rem">✧ ❧ ✧</div><div class="kicker">The Wedding Ceremony</div><h3>Saturday, 21 November 2026</h3><p style="font-size:1.2rem;color:var(--wine)">Om Sai Vatika</p><p>Dharamveer Petrol Pump<br>Gwalior, Madhya Pradesh, India</p><p class="kicker">Celebration time to be announced</p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Om+Sai+Vatika+Dharamveer+Petrol+Pump+Gwalior">Navigate to Venue ↗</a></div></div></section>
 <section class="section gallery-section center" id="gallery"><div class="inner fade"><div class="kicker">A few moments to cherish</div><h2>Our Photo Gallery</h2><div class="rule"></div><p class="copy">A collection of beautiful memories as we step closer to forever.</p>
 <div class="gallery">
-<figure><img loading="lazy" src="assets/couple-01.webp" alt="Anshika and Er. Kushagra together"><figcaption>A beautiful beginning</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-02.webp" alt="A joyful moment together"><figcaption>Little moments</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-03.webp" alt="A candid celebration moment"><figcaption>Pure happiness</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-04.webp" alt="A portrait of the couple"><figcaption>Timeless memories</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-05.webp" alt="A romantic portrait"><figcaption>Side by side</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-06.webp" alt="A special couple moment"><figcaption>Made for each other</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-07.webp" alt="A happy moment together"><figcaption>All smiles</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-08.webp" alt="A cherished memory"><figcaption>In this moment</figcaption></figure>
-<figure><img loading="lazy" src="assets/couple-09.webp" alt="A loving moment together"><figcaption>Forever starts here</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/82172743-beec-43ec-8512-403516a1eb76.jpg" alt="Anshika and Er. Kushagra together"><figcaption>A beautiful beginning</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/7931701b-a1ba-45d3-8d01-774abda9720b.jpg" alt="A joyful moment together"><figcaption>Little moments</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/fb6a7b35-ed96-4b0c-b8fa-0794c7d1ee96.jpg" alt="A candid celebration moment"><figcaption>Pure happiness</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/e71511a1-8582-48c6-8ced-d84e37caa3a3.jpg" alt="A portrait of the couple"><figcaption>Timeless memories</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/4164ca06-8f7e-4f97-a048-ec6f5dac1ba8.jpg" alt="A romantic portrait"><figcaption>Side by side</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/3cb7d8d0-be0c-4734-9737-06e865480504.jpg" alt="A special couple moment"><figcaption>Made for each other</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/64511e56-e3df-4c5e-924f-8c118cf1ecd3.jpg" alt="A happy moment together"><figcaption>All smiles</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/329a582c-9ee1-4d8e-ac3c-a7f7e97a4a9e.jpg" alt="A cherished memory"><figcaption>In this moment</figcaption></figure>
+<figure><img loading="lazy" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CMMI7T5nYBBBdvtTGyIFCSO9AG/4cb6f00f-b61d-4afd-afae-c801d941257c.jpg" alt="A loving moment together"><figcaption>Forever starts here</figcaption></figure>
 </div></div></section>
 </main>
 <footer class="footer" id="share"><div class="eyebrow">With Love & Warm Regards</div><h2>Er. Kushagra <span class="amp">&</span> Anshika</h2><p>We can't wait to celebrate our special day with you.<br><br><strong>The Families of Kushagra & Anshika</strong><br><br>21 November 2026 · Gwalior, India</p><div class="ornament" style="font-size:1.8rem">✧ ❧ ✧</div><div class="share-wrap"><button class="btn" id="shareInvitation">Share Invitation ↗</button></div><p id="shareNote" style="font-size:.72rem;opacity:.75">Share this invitation with your loved ones.</p></footer>
