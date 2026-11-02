@@ -15,11 +15,11 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:"DM Sans",sans-serif}
 .serif{font-family:"Cormorant Garamond",serif}.hindi{font-family:"Tiro Devanagari Hindi",serif}
 a{color:inherit}.ornament{color:var(--gold);letter-spacing:.35em}
-.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;overflow:auto;background:radial-gradient(ellipse at 50% 35%,#783c25 0%,#461522 48%,#210710 100%);color:var(--champ);transition:opacity 1.25s,visibility 1.25s}
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;overflow-y:auto;overflow-x:hidden;padding:18px 0;background:radial-gradient(ellipse at 50% 35%,#783c25 0%,#461522 48%,#210710 100%);color:var(--champ);transition:opacity 1.25s,visibility 1.25s}
 .intro:before,.intro:after{content:"";position:absolute;inset:16px;border:1px solid #c9a45c99;pointer-events:none}.intro:after{inset:24px;border-color:#c9a45c44}
-.intro.hide{opacity:0;visibility:hidden;pointer-events:none}.intro-content{position:relative;z-index:1;width:min(100%,680px);padding:clamp(18px,4vh,38px) 22px;max-width:680px;margin:auto;animation:arrive 1.5s both}
-.ganesha{width:min(62vw,330px);height:auto;max-height:43vh;object-fit:contain;border-radius:0;filter:drop-shadow(0 0 34px #e9b85b88);animation:ganeshaReveal 2.2s cubic-bezier(.2,.8,.2,1) both}
-.intro h1{width:100%;font:500 clamp(2.25rem,6.2vw,4.8rem)/.88 "Cormorant Garamond",serif;color:#f7e8c9;margin:16px auto 14px;overflow-wrap:normal}.intro h1 .name-line{display:block;white-space:nowrap}.intro h1 .amp{display:block;line-height:.75;margin:.08em 0}
+.intro.hide{opacity:0;visibility:hidden;pointer-events:none}.intro-content{position:relative;z-index:1;width:min(100%,760px);padding:clamp(18px,3vh,30px) clamp(28px,6vw,64px);max-width:760px;margin:auto;animation:arrive 1.5s both}.intro-content:before,.intro-content:after{content:"✧\\A❧\\A✧";white-space:pre;position:absolute;top:47%;transform:translateY(-50%);font:clamp(1.2rem,2.2vw,2rem)/2 "Cormorant Garamond",serif;color:#d6b36f99;text-align:center;pointer-events:none}.intro-content:before{left:2px}.intro-content:after{right:2px}
+.ganesha{width:min(44vw,285px);height:auto;max-height:34vh;object-fit:contain;border-radius:0;filter:drop-shadow(0 0 34px #e9b85b88);animation:ganeshaReveal 2.2s cubic-bezier(.2,.8,.2,1) both}
+.intro h1{width:100%;font:500 clamp(2.2rem,5.2vw,4.45rem)/.94 "Cormorant Garamond",serif;color:#f7e8c9;margin:14px auto 10px;overflow-wrap:normal}.intro h1 .name-line{display:block;white-space:nowrap}.intro .sub{letter-spacing:.14em;text-transform:uppercase;font-size:clamp(.54rem,1.5vw,.68rem);line-height:1.6;color:#e8d6b3;padding-inline:8px}.intro h1 .amp{display:block;line-height:.75;margin:.08em 0}
 .intro .sub{letter-spacing:.22em;text-transform:uppercase;font-size:.68rem;color:#e8d6b3}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin:12px 5px 0;padding:14px 24px;border:1px solid var(--gold);background:linear-gradient(135deg,#7b293a,#48111f);color:var(--champ);text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;cursor:pointer;transition:transform .3s,box-shadow .3s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px #19050c44}
@@ -77,7 +77,7 @@ h2{font:500 clamp(2.8rem,7vw,5rem)/.94 "Cormorant Garamond",serif;color:var(--wi
 <div class="sub">॥ श्री गणेशाय नमः ॥</div>
 <h1><span class="name-line">Er. Kushagra</span><span class="amp">&</span><span class="name-line">Anshika</span></h1>
 <div class="sub">A sacred beginning · 21 November 2026</div>
-<button class="btn" id="enter">Open Wedding Invitation <span>✧</span></button>
+<button class="btn" id="enter">Begin with Ganesha’s Blessings <span>✧</span></button><div id="audioHint" class="sub" style="margin-top:10px;opacity:.72;letter-spacing:.08em;text-transform:none">The invitation will open when the blessing music ends · Tap again to continue now</div>
 </div></div>
 <nav class="topnav"><a href="#home">Home</a><a href="#invitation">Invitation</a><a href="#families">Families</a><a href="#gallery">Gallery</a><a href="#venue">Venue</a></nav>
 <header class="cover" id="home"><div class="cover-inner"><div class="eyebrow">Together with their families</div><div class="ornament" style="font-size:2rem;margin:25px">✧ ❧ ✧</div><h1>Er. Kushagra<br><span class="amp">&</span><br>Anshika</h1><div class="tagline">Two Hearts, One Beautiful Beginning</div><div class="date">21 November 2026 · Gwalior, India</div><a class="btn" href="#invitation">Read the Invitation ↓</a></div></header>
@@ -127,25 +127,18 @@ tick();setInterval(tick,1000);
 const intro=document.getElementById('intro');
 const ganeshaAudio=document.getElementById('ganeshaAudio');
 const romanticAudio=document.getElementById('romanticAudio');
-let openingAudioStarted=false;
-function startRomanticAudio(){romanticAudio.play().catch(()=>{});}
-function tryOpeningAudio(){
-  if(openingAudioStarted || ganeshaAudio.ended) return;
-  const playPromise=ganeshaAudio.play();
-  if(playPromise){playPromise.then(()=>{openingAudioStarted=true;}).catch(()=>{});}
-}
-window.addEventListener('load',tryOpeningAudio);
-ganeshaAudio.addEventListener('ended',()=>{if(intro.classList.contains('hide'))startRomanticAudio();});
+const enterButton=document.getElementById('enter');
+let blessingStarted=false, invitationOpened=false;
+function openInvitation(){if(invitationOpened)return;invitationOpened=true;intro.classList.add('hide');setTimeout(()=>intro.remove(),1300);romanticAudio.currentTime=0;romanticAudio.play().catch(()=>{document.getElementById('audioHint')?.replaceChildren(document.createTextNode('Tap anywhere to start the celebration music'));});}
 function enter(){
-  if(ganeshaAudio.ended){startRomanticAudio();}
-  else if(ganeshaAudio.paused){
-    const p=ganeshaAudio.play();
-    if(p){p.then(()=>{openingAudioStarted=true;}).catch(()=>startRomanticAudio());}
-    else startRomanticAudio();
-  }
-  intro.classList.add('hide');setTimeout(()=>intro.remove(),1300);
+  if(blessingStarted){ganeshaAudio.pause();ganeshaAudio.currentTime=0;openInvitation();return;}
+  blessingStarted=true;enterButton.textContent='Playing Ganesha Blessings · Continue Now ✧';
+  document.getElementById('audioHint').textContent='A moment of blessings before the celebration begins';
+  ganeshaAudio.currentTime=0;ganeshaAudio.addEventListener('ended',openInvitation,{once:true});
+  ganeshaAudio.play().catch(()=>openInvitation());
 }
-document.getElementById('enter').addEventListener('click',enter);
+enterButton.addEventListener('click',enter);
+intro.addEventListener('click',e=>{if(blessingStarted&&e.target===intro)openInvitation();});
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 function share(){const data={title:'Er. Kushagra & Anshika — Wedding Invitation',text:'With love and blessings, join us for Er. Kushagra & Anshika’s wedding on 21 November 2026 at Om Sai Vatika, Gwalior.',url:location.href};
